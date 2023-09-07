@@ -14,6 +14,7 @@
 - Decide between training a model from scratch or using an existing base model.
 - Various considerations and rules of thumb will be covered for this decision.
 
+![Flowchart diagramm](./images/flowchart_diagram.png)
 ### Stage 3: Performance Assessment and Training
 
 - Use in-context learning and prompt engineering to improve performance.

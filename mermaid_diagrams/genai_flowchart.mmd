@@ -1,0 +1,70 @@
+graph LR
+
+start(LLM is selected)
+training[LLM fine-tuning]
+
+start --> training
+
+subgraph training
+direction LR
+    style training fill:#e8eaeb,stroke:#333,stroke-width:1px
+
+    subgraph PromptEngingeering [Prompt Engineering]
+        style PromptEngingeering fill:#d3ecf0
+        direction TB
+
+        %% Prompt Engineering
+        LeastToMostPrompting["`Least-To-Most Prompting`"]
+        MetaPrompting["`Meta-Prompting`"]
+        ChainOfThoughtPrompting["`Chain-Of-Thought Prompting`"]
+        IterativePrompting["`Iterative Prompting`"]
+        SequentialPrompting["Sequential Prompting"]
+        ReAct
+        ART["`Automatic Reasoning & Tool Use`"]
+
+        LeastToMostPrompting -.-> MetaPrompting -.-> IterativePrompting -.-> SequentialPrompting -.-> ChainOfThoughtPrompting -.-> ReAct -.->  ART
+    end
+    subgraph FineTuning[LLM fine-tuning]
+        direction TB
+        style FineTuning fill:#ebf8fa, stroke:#f66, stroke-width:2px, color:#000, stroke-dasharray: 5 5
+        %% Fine-Tuning
+        BasicFineTuning[Basic Fine-Tuning]
+        Repurposing[Repurposing]
+        FullFineTuning[Full Fine-Tuning]
+        UnsupervisedFineTuning[Unsupervised Fine-Tuning]
+        SFT[Supervised Fine-tuning]
+        RLHF["`Reinforcement Learning 
+                from Human Feedback`"]
+        PEFT["`Parameter-Efficient 
+                Fine-tuning`"]
+        LoRA[Low-rank Adaptation]    
+
+        BasicFineTuning-.->Repurposing-.->FullFineTuning-.->UnsupervisedFineTuning-.->SFT-.->RLHF-.->PEFT-.->LoRA
+    end
+end
+
+PromptEngingeering-->FineTuning
+FineTuning-->PromptEngingeering
+
+
+SME_alighn["`Align model results 
+            with feedback from 
+            Subject Mater Expert (SME)`"]
+Evaluate[Evaluate]
+Deploy("`Model is ready 
+    to deploy`")
+
+
+training --> SME_alighn
+SME_alighn --> training
+
+SME_alighn --> Evaluate
+Evaluate --> SME_alighn
+Evaluate --> Deploy
+
+style start fill:#e6ffee
+style Deploy fill:#e6ffee
+
+%% sources: 
+%% * Prompt Engineering Techniques: https://cobusgreyling.medium.com/12-prompt-engineering-techniques-644481c857aa
+%% * LLM fine-tuning: https://bdtechtalks.com/2023/07/10/llm-fine-tuning/
