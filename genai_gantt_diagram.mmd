@@ -1,0 +1,21 @@
+gantt
+    title Software Development Process
+    dateFormat  YYYY-MM-DD
+    tickInterval 1week
+    weekday monday
+    
+    section Scope
+    Define the usecase        :a1, 2023-09-11, 2
+    
+    section Select
+    Choose model              :a3, after a1, 5d
+    
+    section Adapt and align model
+    Prompt Engineering        :crit,a2,after a3, 5d
+    Fine-tuning               :after a3, 4d
+    Align with human feedback :crit,after a2, 2d
+    Evaluate                  :a4, after a2, 3d
+    
+    section Application integrations
+    Optimize and deploy model :after a4, 5d
+    Augment LLM applications  :after a4, 8d
