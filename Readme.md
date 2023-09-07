@@ -39,3 +39,9 @@
 - LLMs have fundamental limitations, like inventing information or limited reasoning.
 - Techniques to overcome these limitations will be covered.
 
+## Gantt Diagramm
+
+Some of the stages could be run in parallel, but the order of the stages is fixed.
+
+
+![Gantt diagramm](./images/gantt_diagram.png)
